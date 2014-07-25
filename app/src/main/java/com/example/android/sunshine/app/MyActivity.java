@@ -23,6 +23,7 @@ public class MyActivity extends ActionBarActivity {
                     .add(R.id.container, new ForecastFragment())
                     .commit();
         }
+        Log.v(TAG," onCreate called");
     }
 
     @Override
@@ -68,4 +69,33 @@ public class MyActivity extends ActionBarActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.v(TAG," onStart called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.v(TAG," onResume called");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.v(TAG," onPause called");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.v(TAG," onStop called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.v(TAG," onDestroy called");
+    }
 }
