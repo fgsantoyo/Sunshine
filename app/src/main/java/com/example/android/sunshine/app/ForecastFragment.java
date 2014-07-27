@@ -89,7 +89,7 @@ public class ForecastFragment extends Fragment {
                 getActivity(),
                 R.layout.list_item_forecast,
                 R.id.list_item_forecast_textview,
-                new ArrayList());
+                new ArrayList<String>());
         ListView listviewForecast = (ListView) rootView.findViewById(R.id.listview_forecast);
         listviewForecast.setAdapter(listviewAdapter);
 
@@ -155,7 +155,7 @@ public class ForecastFragment extends Fragment {
 
                 // Read the input stream into a String
                 InputStream inputStream = urlConnection.getInputStream();
-                StringBuffer buffer = new StringBuffer();
+                StringBuilder buffer = new StringBuilder();
                 if (inputStream == null) {
                     // Nothing to do.
                     forecastJsonStr = null;
@@ -167,7 +167,7 @@ public class ForecastFragment extends Fragment {
                     // Since it's JSON, adding a newline isn't necessary (it won't affect parsing)
                     // But it does make debugging a *lot* easier if you print out the completed
                     // buffer for debugging.
-                    buffer.append(line + "\n");
+                    buffer.append(line).append("\n");
                 }
 
                 if (buffer.length() == 0) {
@@ -212,7 +212,7 @@ public class ForecastFragment extends Fragment {
                 for (String item : s) {
                     listviewAdapter.add(item);
                 }
-                //With ArrayAdaptor there is no need to call the below method as the adaptor calls
+                //With ArrayAdaptor there is no need to call notifyDataSetChanged() as the adaptor calls
                 //internally
 //                listviewAdapter.notifyDataSetChanged();
             }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.sunshine.app" >
+    package="com.example.android.sunshine.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -9,10 +9,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MyActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,7 @@
         <activity
             android:name=".ForecastDetailActivity"
             android:label="@string/title_activity_forecast_detail"
-            android:parentActivityName=".MyActivity" >
+            android:parentActivityName=".MyActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.sunshine.app.MyActivity" />
@@ -30,11 +30,15 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MyActivity" >
+            android:parentActivityName=".MyActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.sunshine.app.MyActivity" />
         </activity>
+
+        <provider
+            android:name=".data.WeatherProvider"
+            android:authorities="com.example.android.sunshine.app" />
     </application>
 
 </manifest>
